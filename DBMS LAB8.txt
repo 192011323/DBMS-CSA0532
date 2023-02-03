@@ -17,3 +17,20 @@ mysql> select regno,name from mentees where address="mpl";
 | 192011143 | bharu |
 +-----------+-------+
 1 row in set (0.00 sec)
+mysql> create table mentees1(id int(10),name address varchar(10));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'address varchar(10))' at line 1
+mysql> select regno,address
+    -> ;
+ERROR 1054 (42S22): Unknown column 'regno' in 'field list'
+mysql> from mentees where dept="cse";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from mentees where dept="cse"' at line 1
+mysql> select*from mentees1;
+ERROR 1146 (42S02): Table 'sse.mentees1' doesn't exist
+mysql> select*from mentees;
++-------+-----------+------+---------+------------+-------+----------+
+| name  | regno     | dept | address | fathername | marks | subjects |
++-------+-----------+------+---------+------------+-------+----------+
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 | dbms     |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 | dbms     |
+| bharu | 192011143 | cse  | mpl     | chalapati  |    25 | dbms     |
++-------+-----------+------+---------+------------+-------+----------+
