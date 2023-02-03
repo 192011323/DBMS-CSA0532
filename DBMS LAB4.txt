@@ -1,0 +1,29 @@
+mysql> update mentees set dept="ece" where fathername="rammohan";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from mentees;
++-------+-----------+------+---------+------------+
+| name  | regno     | dept | address | fathername |
++-------+-----------+------+---------+------------+
+| yash  | 192011323 | ece  | vsj     | rammohan   |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |
+| yash  | 192011323 | cse  | vsj     | ram        |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |
+| bharu | 192011143 | cse  | mpl     | chalapati  |
++-------+-----------+------+---------+------------+
+5 rows in set (0.00 sec)
+
+mysql> delete from mentees name="yash" where address="vsj";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name="yash" where address="vsj"' at line 1
+mysql> delete from mentees where name="yash";
+Query OK, 2 rows affected (0.00 sec)
+
+mysql> select*from mentees;
++-------+-----------+------+---------+------------+
+| name  | regno     | dept | address | fathername |
++-------+-----------+------+---------+------------+
+| bhavi | 192011315 | cse  | kg      | venkatesh  |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |
+| bharu | 192011143 | cse  | mpl     | chalapati  |
++-------+-----------+------+---------+------------+
