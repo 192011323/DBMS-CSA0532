@@ -1,0 +1,81 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> USE SSE;
+Database changed
+mysql> SHOW TABLES;
++---------------+
+| Tables_in_sse |
++---------------+
+| empdept       |
+| employee      |
+| mentees       |
++---------------+
+3 rows in set (0.00 sec)
+
+mysql> select*from mentees;
++-------+-----------+------+---------+------------+-------+----------+
+| name  | regno     | dept | address | fathername | marks | subjects |
++-------+-----------+------+---------+------------+-------+----------+
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 | maths    |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 | maths    |
+| bharu | 192011143 | cse  | mpl     | chalapati  |    25 | maths    |
++-------+-----------+------+---------+------------+-------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select*from mentees order by name;
++-------+-----------+------+---------+------------+-------+----------+
+| name  | regno     | dept | address | fathername | marks | subjects |
++-------+-----------+------+---------+------------+-------+----------+
+| bharu | 192011143 | cse  | mpl     | chalapati  |    25 | maths    |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 | maths    |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 | maths    |
++-------+-----------+------+---------+------------+-------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select*from mentees group by marks;
++-------+-----------+------+---------+------------+-------+----------+
+| name  | regno     | dept | address | fathername | marks | subjects |
++-------+-----------+------+---------+------------+-------+----------+
+| bharu | 192011143 | cse  | mpl     | chalapati  |    25 | maths    |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 | maths    |
++-------+-----------+------+---------+------------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select*from mentees group by dept;
++-------+-----------+------+---------+------------+-------+----------+
+| name  | regno     | dept | address | fathername | marks | subjects |
++-------+-----------+------+---------+------------+-------+----------+
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 | maths    |
++-------+-----------+------+---------+------------+-------+----------+
+1 row in set (0.00 sec)
+
+mysql> select*from mentees group
+    ->
+    ->
+    -> select*from mentees having marks<25;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select*from mentees having marks<25' at line 4
+mysql> select*from mentees having marks<25;
+Empty set (0.00 sec)
+
+mysql> select*from mentees having marks>25
+    -> ;
++-------+-----------+------+---------+------------+-------+----------+
+| name  | regno     | dept | address | fathername | marks | subjects |
++-------+-----------+------+---------+------------+-------+----------+
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 | maths    |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 | maths    |
++-------+-----------+------+---------+------------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql>
