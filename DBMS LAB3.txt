@@ -1,0 +1,32 @@
+mysql> insert into mentees values("yash",192011323,"cse","vsj","ram");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into mentees values("bhavi",192011315,"cse","kg","venkatesh");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into mentees values("bharu",192011143,"cse","mpl","chalapati");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from mentees;
++-------+-----------+------+---------+------------+
+| name  | regno     | dept | address | fathername |
++-------+-----------+------+---------+------------+
+| yash  | 192011323 | cse  | vsj     | rammohan   |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |
+| yash  | 192011323 | cse  | vsj     | ram        |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |
+| bharu | 192011143 | cse  | mpl     | chalapati  |
++-------+-----------+------+---------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select name from mentees;
++-------+
+| name  |
++-------+
+| yash  |
+| bhavi |
+| yash  |
+| bhavi |
+| bharu |
++-------+
+5 rows in set (0.00 sec)
