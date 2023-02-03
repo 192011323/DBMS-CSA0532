@@ -1,0 +1,42 @@
+mysql> select*from mentees where dept="cse";
++-------+-----------+------+---------+------------+
+| name  | regno     | dept | address | fathername |
++-------+-----------+------+---------+------------+
+| bhavi | 192011315 | cse  | kg      | venkatesh  |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |
+| bharu | 192011143 | cse  | mpl     | chalapati  |
++-------+-----------+------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql> alter table mentees add marks int;
+Query OK, 3 rows affected (0.06 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> update mentees set marks=30 where name="bhavi";
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update mentees set marks=25 where regno=192011143;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from mentees;
++-------+-----------+------+---------+------------+-------+
+| name  | regno     | dept | address | fathername | marks |
++-------+-----------+------+---------+------------+-------+
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 |
+| bhavi | 192011315 | cse  | kg      | venkatesh  |    30 |
+| bharu | 192011143 | cse  | mpl     | chalapati  |    25 |
++-------+-----------+------+---------+------------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select*from mentees where name like "u";
+Empty set (0.00 sec)
+
+mysql> select*from mentees where regno like "192011143";
++-------+-----------+------+---------+------------+-------+
+| name  | regno     | dept | address | fathername | marks |
++-------+-----------+------+---------+------------+-------+
+| bharu | 192011143 | cse  | mpl     | chalapati  |    25 |
++-------+-----------+------+---------+------------+-------+
+1 row in set (0.00 sec)
